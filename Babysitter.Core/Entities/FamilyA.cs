@@ -1,19 +1,25 @@
-﻿using Babysitter.Core.Accessors;
-using Babysitter.Core.Data;
-using Babysitter.Core.Extensions;
+﻿using BabysitterKata.Extensions;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Babysitter.Core.Entities
+namespace BabysitterKata.Entities
 {
     internal sealed class FamilyA : Family
     {
 
         public FamilyA()
-            : base('A')
+            : base("A")
         {
         }
-        
+
+        public override int GetRateAtTime(Int32 time)
+        {
+            
+            if (time.IsBetweenExlusiveUpperBound(17,23))
+            {
+                return 15;
+            }
+
+            return 20;
+        }
     }
 }

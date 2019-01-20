@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Babysitter.Core\Babysitter.Core.csproj" />
+    <ProjectReference Include="..\Babysitter.Core\BabysitterKata.Core.csproj" />
   </ItemGroup>
 
 </Project>

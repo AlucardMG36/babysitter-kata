@@ -1,22 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Babysitter.Core.Data;
+using BabysitterKata.Extensions;
+using System;
 
-namespace Babysitter.Core.Entities
+namespace BabysitterKata.Entities
 {
-    public abstract class Family
+    public abstract class Family : IFamilyRepository
     {
         protected Family()
         { }
 
-        public Int32 Rate { get; set; }
-
-        protected Family(char FamilyId)
+        protected Family(String FamilyId)
         {
             Id = FamilyId;
         }
 
-        public char Id { get; protected set; }
+
+        public Int32 Rate { get; set; }
+
+        public String Id { get; protected set; }
 
         public override bool Equals(object obj)
         {
@@ -53,6 +54,7 @@ namespace Babysitter.Core.Entities
         {
             return base.GetHashCode();
         }
-
+        
+        public abstract int GetRateAtTime(Int32 time);
     }
 }

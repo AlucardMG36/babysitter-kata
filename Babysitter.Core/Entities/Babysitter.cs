@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using BabysitterKata.Entities;
+using System;
 
-namespace Babysitter.Core.Entities
+namespace BabysitterKata.Entities
 {
     internal sealed class Babysitter
     { 
         public Babysitter() { }
 
-        public Int32 EndTime { get; set; }
-
-        public Family Family { get; set; }
-
-        public Int32 StartTime { get; set; }
+        public Shift ShiftWorked { get; set; }
     }
 }

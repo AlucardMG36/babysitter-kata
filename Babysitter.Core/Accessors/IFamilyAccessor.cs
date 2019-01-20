@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using BabysitterKata.Entities;
+using System;
 
-namespace Babysitter.Core.Accessors
+namespace BabysitterKata.Core.Accessors
 {
     public interface IFamilyAccessor
     {
-        Int32 GetRateAtTime(Int32 time);
+        Family GetFamilyId(Char I);
     }
 }

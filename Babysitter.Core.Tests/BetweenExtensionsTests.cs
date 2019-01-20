@@ -1,12 +1,8 @@
-﻿using Babysitter.Core.Extensions;
-using Exceptionless;
+﻿using BabysitterKata.Extensions;
 using Shouldly;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
-namespace Babysitter.Core.Tests
+namespace BabysitterKata.Core.Tests
 {
     public class BetweenExtensionsTests
     {

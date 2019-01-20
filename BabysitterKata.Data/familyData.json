@@ -1,0 +1,44 @@
+{
+  "Families": [
+    {
+      "A": {
+        "rates": [
+          {
+            "beforeElevenPm": 15
+          },
+          {
+            "afterElevenPm": 20
+          }
+        ]
+      },
+      "B": {
+        "rates": [
+          {
+            "beforeTenPm": 12
+
+          },
+          {
+            "betweenTenAndMidnight": 8
+
+          },
+          {
+            "afterMidnight": 16
+
+          }
+        ]
+      },
+      "C": {
+        "rates": [
+          {
+            "beforeNinePm": 21
+
+          },
+          {
+            "afterNinePm": 15
+
+          }
+        ]
+      }
+    }
+  ]
+}

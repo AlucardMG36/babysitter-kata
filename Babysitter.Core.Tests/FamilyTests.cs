@@ -1,11 +1,11 @@
-using Babysitter.Core.Entities;
+using BabysitterKata.Entities;
 using Exceptionless;
 using GenFu;
 using System;
 using Shouldly;
 using Xunit;
 
-namespace Babysitter.Core.Tests
+namespace BabysitterKata.Core.Tests
 {
     public class FamilyTests
     {

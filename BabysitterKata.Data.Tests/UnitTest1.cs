@@ -9,7 +9,6 @@ namespace BabysitterKata.Data.Tests
         public void Test1()
         {
 
-
         }
     }
 }

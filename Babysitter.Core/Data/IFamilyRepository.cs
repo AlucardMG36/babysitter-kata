@@ -6,6 +6,6 @@ namespace Babysitter.Core.Data
 {
     public interface IFamilyRepository
     {
-
+        Int32 GetRateAtTime(Int32 time);
     }
 }
