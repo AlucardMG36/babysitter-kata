@@ -7,6 +7,8 @@ namespace BabysitterKata.Core.Accessors
 {
    public interface IBabysitterAccessor
     {
-       Int32 CalculatePay(Shift shift);
+        void WorkShift(Int32 end, Int32 start);
+
+        Int32 GetPayForNightWorked();
     }
 }

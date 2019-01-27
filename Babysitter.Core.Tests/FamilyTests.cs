@@ -9,17 +9,13 @@ namespace BabysitterKata.Core.Tests
 {
     public class FamilyTests
     {
-        private readonly Family _familyA = new FamilyA();
-        private readonly Family _familyB = new FamilyB();
-        private readonly Family _familyC = new FamilyC();
-
-
+        
         [Fact]
         public void EqualsShouldReturnTrueIfFamilyIsTheSame()
         {
             //ARRANGE
-            var testFamily1 = _familyA;
-            var testFamily2 = _familyA;
+            var testFamily1 = Family.Create("A");
+            var testFamily2 = Family.Create("A");
             //ACT & ASSERT    
             testFamily1.Equals(testFamily2).ShouldBeTrue();
             (testFamily1 == testFamily2).ShouldBeTrue();
@@ -29,8 +25,8 @@ namespace BabysitterKata.Core.Tests
         public void EqualsShouldReturnFalseIfFamilyIsNotTheSame()
         {
             //ARRANGE
-            var testFamily1 = _familyA;
-            var testFamily2 = _familyB;
+            var testFamily1 = Family.Create("A");
+            var testFamily2 = Family.Create("B");
 
             //ACT & ASSERT
             testFamily1.Equals(testFamily2).ShouldBeFalse();
@@ -41,8 +37,8 @@ namespace BabysitterKata.Core.Tests
         public void NotEqualsShouldReturnTrueIfFamiliesAreNotTheSame()
         {
             //ARRANGE
-            var testFamily1 = _familyA;
-            var testFamily2 = _familyB;
+            var testFamily1 = Family.Create("A");
+            var testFamily2 = Family.Create("B");
 
             //ACT & ASSERT
             (testFamily1 != testFamily2).ShouldBeTrue();

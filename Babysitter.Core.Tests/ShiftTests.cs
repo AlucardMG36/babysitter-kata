@@ -14,17 +14,11 @@ namespace BabysitterKata.Core.Tests
         public void CalculatePayForNightWorkedShouldReturnRateForFamilyABeforeElevenPm()
         {
             //ARRANGE
-            var shift = new Shift
-            {
-                StartTime = 17,
-                EndTime = 22,
-                FamilyWorkedUnder = new FamilyA()
-            };
+            var shift = Shift.Create(22,"A",17);
 
             //ACT
-            shift.CalculatePayForNightWorked();
-            var totalPay = shift.Pay;
-
+            var totalPay = shift.CalculatePayForNightWorked();
+            
             //ASSERT
             totalPay.ShouldBe(75);
         }
@@ -33,17 +27,11 @@ namespace BabysitterKata.Core.Tests
         public void CalculatePayForNightWorkedShouldReturnRateForFamilyAAfterMidnight()
         {
             //ARRANGE
-            var shift = new Shift
-            {
-                StartTime = 0,
-                EndTime = 4,
-                FamilyWorkedUnder = new FamilyA()
-            };
+            var shift = Shift.Create(4, "A", 0);
 
             //ACT
-            shift.CalculatePayForNightWorked();
-            var totalPay = shift.Pay;
-
+            var totalPay = shift.CalculatePayForNightWorked();
+            
             //ASSERT
             totalPay.ShouldBe(80);
         }
@@ -52,17 +40,11 @@ namespace BabysitterKata.Core.Tests
         public void CalculatePayForNightWorkedShouldReturnRateForOvernightWorkWithFamilyA()
         {
             //ARRANGE
-            var shift = new Shift
-            {
-                StartTime = 17,
-                EndTime = 4,
-                FamilyWorkedUnder = new FamilyA()
-            };
+            var shift = Shift.Create(4, "A", 17);
 
             //ACT
-            shift.CalculatePayForNightWorked();
-            var totalPay = shift.Pay;
-
+            var totalPay = shift.CalculatePayForNightWorked();
+            
             //ASSERT
             totalPay.ShouldBe(190);
         }
@@ -71,36 +53,24 @@ namespace BabysitterKata.Core.Tests
         public void CalculatePayForNightWorkedShouldReturnRateForFamilyBBeforeTenPm()
         {
             //ARRANGE
-            var shift = new Shift
-            {
-                StartTime = 17,
-                EndTime = 21,
-                FamilyWorkedUnder = new FamilyB()
-            };
+            var shift = Shift.Create(21, "B", 17);
 
             //ACT
-            shift.CalculatePayForNightWorked();
-            var totalPay = shift.Pay;
-
+            var totalPay = shift.CalculatePayForNightWorked();
+            
             //ASSERT
-            totalPay.ShouldBe(60);
+            totalPay.ShouldBe(48);
         }
 
         [Fact]
         public void CalculatePayForNightWorkedShouldReturnRateForFamilyBBetweenTenAndMidnight()
         {
             //ARRANGE
-            var shift = new Shift
-            {
-                StartTime = 22,
-                EndTime = 0,
-                FamilyWorkedUnder = new FamilyB()
-            };
+            var shift = Shift.Create(0, "B", 22);
 
             //ACT
-            shift.CalculatePayForNightWorked();
-            var totalPay = shift.Pay;
-
+            var totalPay = shift.CalculatePayForNightWorked();
+            
             //ASSERT
             totalPay.ShouldBe(16);
         }
@@ -109,17 +79,11 @@ namespace BabysitterKata.Core.Tests
         public void CalculatePayForNightWorkedShouldReturnRateForFamilyBUntilMidnight()
         {
             //ARRANGE
-            var shift = new Shift
-            {
-                StartTime = 17,
-                EndTime = 0,
-                FamilyWorkedUnder = new FamilyB()
-            };
+            var shift = Shift.Create(0, "B", 17);
 
             //ACT
-            shift.CalculatePayForNightWorked();
-            var totalPay = shift.Pay;
-
+            var totalPay = shift.CalculatePayForNightWorked();
+            
             //ASSERT
             totalPay.ShouldBe(76);
         }
@@ -128,17 +92,11 @@ namespace BabysitterKata.Core.Tests
         public void CalculatePayForNightWorkedShouldReturnRateForFamilyBAfterMidnight()
         {
             //ARRANGE
-            var shift = new Shift
-            {
-                StartTime = 1,
-                EndTime = 4,
-                FamilyWorkedUnder = new FamilyB()
-            };
+            var shift = Shift.Create(4, "B", 1);
 
             //ACT
-            shift.CalculatePayForNightWorked();
-            var totalPay = shift.Pay;
-
+            var totalPay = shift.CalculatePayForNightWorked();
+            
             //ASSERT
             totalPay.ShouldBe(48);
         }
@@ -148,16 +106,10 @@ namespace BabysitterKata.Core.Tests
         public void CalculatePayForNightWorkedShouldReturnRateForFamilyBOverNight()
         {
             //ARRANGE
-            var shift = new Shift
-            {
-                StartTime = 17,
-                EndTime = 4,
-                FamilyWorkedUnder = new FamilyB()
-            };
+            var shift = Shift.Create(4, "B", 17);
 
             //ACT
-            shift.CalculatePayForNightWorked();
-            var totalPay = shift.Pay;
+            var totalPay = shift.CalculatePayForNightWorked();
             
             //ASSERT
             totalPay.ShouldBe(140);
@@ -167,17 +119,11 @@ namespace BabysitterKata.Core.Tests
         public void CalculatePayForNightWorkedShouldReturnRateForBeforeNineWithFamilyC()
         {
             //ARRANGE
-            var shift = new Shift
-            {
-                StartTime = 17,
-                EndTime = 20,
-                FamilyWorkedUnder = new FamilyC()
-            };
+            var shift = Shift.Create(20, "C", 17);
 
             //ACT
-            shift.CalculatePayForNightWorked();
-            var totalPay = shift.Pay;
-
+            var totalPay = shift.CalculatePayForNightWorked();
+            
             //ASSERT
             totalPay.ShouldBe(63);
         }
@@ -186,17 +132,11 @@ namespace BabysitterKata.Core.Tests
         public void CalculatePayForNightWorkedShouldReturnRateForAfterNineBeforeMidnightWithFamilyC()
         {
             //ARRANGE
-            var shift = new Shift
-            {
-                StartTime = 21,
-                EndTime = 23,
-                FamilyWorkedUnder = new FamilyC()
-            };
+            var shift = Shift.Create(23, "C", 21);
 
             //ACT
-            shift.CalculatePayForNightWorked();
-            var totalPay = shift.Pay;
-
+            var totalPay = shift.CalculatePayForNightWorked();
+            
             //ASSERT
             totalPay.ShouldBe(30);
         }
@@ -205,17 +145,11 @@ namespace BabysitterKata.Core.Tests
         public void CalculatePayForNightWorkedShouldReturnRateForOvernightWithFamilyC()
         {
             //ARRANGE
-            var shift = new Shift
-            {
-                StartTime = 17,
-                EndTime = 4,
-                FamilyWorkedUnder = new FamilyC()
-            };
+            var shift = Shift.Create(4, "C", 17);
 
             //ACT
-            shift.CalculatePayForNightWorked();
-            var totalPay = shift.Pay;
-
+            var totalPay = shift.CalculatePayForNightWorked();
+            
             //ASSERT
             totalPay.ShouldBe(189);
         }

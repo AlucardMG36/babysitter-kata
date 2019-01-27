@@ -1,23 +1,21 @@
-﻿using Babysitter.Core.Data;
-using BabysitterKata.Extensions;
-using System;
+﻿using System;
 
 namespace BabysitterKata.Entities
 {
-    public abstract class Family : IFamilyRepository
+    internal sealed class Family
     {
-        protected Family()
+        private Family()
         { }
+        
+        public String Id { get; private set; }
 
-        protected Family(String FamilyId)
+        internal static Family Create(String id)
         {
-            Id = FamilyId;
+            return new Family()
+            {
+                Id = id
+            };
         }
-
-
-        public Int32 Rate { get; set; }
-
-        public String Id { get; protected set; }
 
         public override bool Equals(object obj)
         {
@@ -55,6 +53,5 @@ namespace BabysitterKata.Entities
             return base.GetHashCode();
         }
         
-        public abstract int GetRateAtTime(Int32 time);
     }
 }

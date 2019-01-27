@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Babysitter.Core
+namespace BabysitterKata.Core
 {
     class Program
     {

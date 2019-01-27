@@ -5,6 +5,6 @@ namespace BabysitterKata.Core.Accessors
 {
     public interface IFamilyAccessor
     {
-        Family GetFamilyId(Char I);
+
     }
 }
