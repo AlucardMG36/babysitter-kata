@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FamilyListComponent } from './family-list.component';
+import { FamilySelectorComponent } from './family-selector.component';
 
-describe('FamilyListComponent', () => {
-  let component: FamilyListComponent;
-  let fixture: ComponentFixture<FamilyListComponent>;
+describe('FamilySelectorComponent', () => {
+  let component: FamilySelectorComponent;
+  let fixture: ComponentFixture<FamilySelectorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FamilyListComponent ]
+      declarations: [ FamilySelectorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FamilyListComponent);
+    fixture = TestBed.createComponent(FamilySelectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,7 @@
+{
+"apiPath": "http://localhost:50680",
+"cacheLocation": "localStorage",
+"clientId": "0cc5b900-f77b-480d-a847-35e7d589032d",
+"redirectUri": "",
+"tenant": ""
+}
