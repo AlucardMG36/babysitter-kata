@@ -22,7 +22,7 @@ using System.Runtime.InteropServices;
 
 
 [assembly: InternalsVisibleTo("BabysitterKata.Core.Tests")]
-[assembly: InternalsVisibleTo("BabysitterKata.Data")]
+[assembly: InternalsVisibleTo("BabysitterKata.Data.EntityFramework")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 

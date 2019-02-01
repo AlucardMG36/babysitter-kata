@@ -1,47 +1,60 @@
-﻿using BabysitterKata.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using System;
+using BabysitterKata.App.Models;
+using BabysitterKata.Core.Accessors;
+using BabysitterKata.Core.Data;
+using BabysitterKata.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BabysitterKata.App.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    [ApiController()]
+    [Route("[controller]")]
     public class BabysitterController : ControllerBase
     {
-        // GET: api/Babysitter
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly IBabysitterAccessor _babysitter;
+        
+        public BabysitterController(IBabysitterAccessor babysitter)
+            :base()
         {
-            return new string[] { "value1", "value2" };
+            _babysitter = babysitter ?? throw new ArgumentException(nameof(babysitter));
         }
-
-        // GET: api/Babysitter/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        
+        [HttpGet()]
+        [ProducesResponseType(200, Type=typeof(BabysitterViewModel))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(403)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public ActionResult<ViewModel<Babysitter>> Get(String familyId, int startTime, int endTime)
         {
-            return "value";
-        }
+            var requestData = new BabysitterRequestData()
+            {
+                FamilyId = familyId,
+                StartTime = startTime,
+                EndTime = endTime
+            };
 
-        // POST: api/Babysitter
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
+            try
+            {
+             
+                var babysitter = _babysitter.GetBabysitterWorkingShift(requestData);
 
-        // PUT: api/Babysitter/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+                if (babysitter is null)
+                {
+                    return NoContent();
+                }
 
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+                var vm = BabysitterViewModel.From(Request, babysitter);
+
+                return Ok(vm);
+            }
+            catch(Exception ex)
+            {
+                
+               var vm = new ViewModel<Babysitter>(String.Empty);
+                vm.AddError(ex.Message);
+                return BadRequest(vm);
+            }
         }
     }
 }

@@ -5,6 +5,5 @@ namespace BabysitterKata.Core.Data
 {
     public interface IBabysitterRepository
     {
-
     }
 }

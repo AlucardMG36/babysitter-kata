@@ -1,9 +1,10 @@
 import { Configuration } from '../../models/configuration';
 import { Injectable } from '@angular/core';
 import { RestService } from '../rest/rest.service';
+import { SharedModule } from '../../shared.module';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: SharedModule
 })
 export class ConfigurationService {
   currentConfiguration: Configuration;

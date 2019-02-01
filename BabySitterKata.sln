@@ -3,15 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BabysitterKata.Core", "Babysitter.Core\BabysitterKata.Core.csproj", "{11122C50-C99B-4798-8C4C-88AE6DA824E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BabysitterKata.Core", "Babysitter.Core\BabysitterKata.Core.csproj", "{11122C50-C99B-4798-8C4C-88AE6DA824E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BabysitterKata.Core.Tests", "Babysitter.Core.Tests\BabysitterKata.Core.Tests.csproj", "{47DE957D-1656-4BB4-8EA8-CE59966C0750}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BabysitterKata.Core.Tests", "Babysitter.Core.Tests\BabysitterKata.Core.Tests.csproj", "{47DE957D-1656-4BB4-8EA8-CE59966C0750}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{7DAED6DD-34CA-4AC8-8852-27871BC0B9F4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{0BD95400-FF6A-4B52-8CA8-9812FFABC3F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BabysitterKata.App", "BabysitterKata.App\BabysitterKata.App.csproj", "{4DF9A364-CA4E-4187-9065-39324669C8F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BabysitterKata.App", "BabysitterKata.App\BabysitterKata.App.csproj", "{4DF9A364-CA4E-4187-9065-39324669C8F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{D89C6044-33C7-445B-9410-71DB9157C575}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BabysitterKata.Data.EntityFramework", "BabysitterKata.Data\BabysitterKata.Data.EntityFramework.csproj", "{D737E6AF-0E37-4F9D-8B55-4E6280C987FB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BabysitterKata.App.Api.Tests", "BabysitterKata.App.Api.Tests\BabysitterKata.App.Api.Tests.csproj", "{05FD26E4-EA95-40F9-80F0-FAC13B6BF874}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BabysitterKata.Data.EntityFramework.Tests", "BabysitterKata.Data.Tests\BabysitterKata.Data.EntityFramework.Tests.csproj", "{33061561-984C-4EEC-86C4-3C5BD85D7DF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +39,18 @@ Global
 		{4DF9A364-CA4E-4187-9065-39324669C8F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DF9A364-CA4E-4187-9065-39324669C8F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DF9A364-CA4E-4187-9065-39324669C8F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D737E6AF-0E37-4F9D-8B55-4E6280C987FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D737E6AF-0E37-4F9D-8B55-4E6280C987FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D737E6AF-0E37-4F9D-8B55-4E6280C987FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D737E6AF-0E37-4F9D-8B55-4E6280C987FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05FD26E4-EA95-40F9-80F0-FAC13B6BF874}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05FD26E4-EA95-40F9-80F0-FAC13B6BF874}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05FD26E4-EA95-40F9-80F0-FAC13B6BF874}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05FD26E4-EA95-40F9-80F0-FAC13B6BF874}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33061561-984C-4EEC-86C4-3C5BD85D7DF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33061561-984C-4EEC-86C4-3C5BD85D7DF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33061561-984C-4EEC-86C4-3C5BD85D7DF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33061561-984C-4EEC-86C4-3C5BD85D7DF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +59,9 @@ Global
 		{11122C50-C99B-4798-8C4C-88AE6DA824E4} = {7DAED6DD-34CA-4AC8-8852-27871BC0B9F4}
 		{47DE957D-1656-4BB4-8EA8-CE59966C0750} = {7DAED6DD-34CA-4AC8-8852-27871BC0B9F4}
 		{4DF9A364-CA4E-4187-9065-39324669C8F2} = {0BD95400-FF6A-4B52-8CA8-9812FFABC3F7}
+		{D737E6AF-0E37-4F9D-8B55-4E6280C987FB} = {D89C6044-33C7-445B-9410-71DB9157C575}
+		{05FD26E4-EA95-40F9-80F0-FAC13B6BF874} = {0BD95400-FF6A-4B52-8CA8-9812FFABC3F7}
+		{33061561-984C-4EEC-86C4-3C5BD85D7DF7} = {D89C6044-33C7-445B-9410-71DB9157C575}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {04238D49-21D4-4809-8556-770595B6F553}

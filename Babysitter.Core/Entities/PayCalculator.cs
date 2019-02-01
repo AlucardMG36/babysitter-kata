@@ -10,7 +10,7 @@ namespace BabysitterKata.Entities
 
         private PayCalculator() { }
 
-        internal static PayCalculator Create(Int32 endTime, Int32 startTime)
+        internal static PayCalculator Create(Int32 startTime , Int32 endTime)
         {
             return new PayCalculator()
             {
