@@ -33,7 +33,7 @@ describe('ConfigurationService', () => {
     service.Load().then(() => {
       expect(service.currentConfiguration.apiPath).toEqual(fakeObj.apiPath, 'expected environment');
     });
-    expect(restServiceSpy.get.calls.count()).toBe(1, 'spy method was called once');
+    expect(restServiceSpy.get).toHaveBeenCalledTimes(1);
   });
 
   it('#Load should return undefined currentConfiguration when the service returns a 404', () => {
@@ -44,7 +44,7 @@ describe('ConfigurationService', () => {
       fail('expected an error, not environment'),
       expect(service.currentConfiguration).toBeUndefined();
     });
-    expect(restServiceSpy.get.calls.count()).toBe(1, 'spy method was called once');
+    expect(restServiceSpy.get).toHaveBeenCalledTimes(1);
   });
 
 });

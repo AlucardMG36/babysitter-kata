@@ -1,8 +1,6 @@
-<div ngbDropdown class="d-inline-block">
-    <button class="btn btn-secondary" id="dropdownBasic1" ngbDropdownToggle>Family Choices</button>
-    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-      <button class="dropdown-item" value="A">Family A</button>
-      <button class="dropdown-item" value="B">Family B</button>
-      <button class="dropdown-item" value="C">Family C</button>
-    </div>
-  </div>
+<select class="familySelect" (change) ="familySelected($event)" ngModel name="familySelect">
+  <option value="" disabled selected> Family Worked Under</option>
+  <option *ngFor ="let family of Families" value={{family.Id}}>
+    {{family.Name}}
+  </option>
+</select>

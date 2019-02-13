@@ -1,16 +1,12 @@
 import { AppComponent } from './app.component';
 import { Bootstrapper } from './bootstrapper';
 import { BrowserModule } from '@angular/platform-browser';
+import { CoreModule } from './core/core.module';
 import { FormsModule } from '@angular/forms';
-import { HomeComponent } from './core/home/home.component';
-import { HttpClientModule } from '@angular/common/http';
-import { NavMenuComponent } from './core/nav-menu/nav-menu.component';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RouterModule } from '@angular/router';
-import { ShiftEntryFormComponent } from './core/shift-entry-form/shift-entry-form.component';
-import { ShiftTimePickerComponent } from './core/shift-time-picker/shift-time-picker.component';
-import { FamilySelectorComponent } from './core/family-selector/family-selector.component';
+import { RoutingModule } from './routing.module';
+import { SharedModule } from './shared/shared.module';
 
 export function runBootstrapper(bootstrapper: Bootstrapper): Function {
   return () => bootstrapper.run();
@@ -18,21 +14,15 @@ export function runBootstrapper(bootstrapper: Bootstrapper): Function {
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    NavMenuComponent,
-    ShiftEntryFormComponent,
-    ShiftTimePickerComponent,
-    FamilySelectorComponent
+    AppComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    CoreModule,
     FormsModule,
-    HttpClientModule,
     NgbModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' }
-    ])
+    RoutingModule,
+    SharedModule
   ],
   providers: [
     Bootstrapper,

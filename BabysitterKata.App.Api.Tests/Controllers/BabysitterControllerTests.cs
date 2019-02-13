@@ -84,7 +84,7 @@ namespace BabysitterKata.App.Api.Tests
             _mockBabysitter = new Mock<IBabysitterAccessor>();
 
             _mockBabysitter.Setup(x => x.GetBabysitterWorkingShift(It.IsAny<BabysitterRequestData>()))
-                           .Returns(new Babysitter(_requestData.FamilyId)
+                           .Returns(new Babysitter(_requestData)
                                         {PayForShift = RandomData.GetInt(80,280)
                                         });
         }

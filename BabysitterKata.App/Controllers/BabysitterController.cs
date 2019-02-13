@@ -21,39 +21,36 @@ namespace BabysitterKata.App.Controllers
         
         [HttpGet()]
         [ProducesResponseType(200, Type=typeof(BabysitterViewModel))]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(403)]
-        [ProducesResponseType(404)]
-        [ProducesResponseType(500)]
         public ActionResult<ViewModel<Babysitter>> Get(String familyId, int startTime, int endTime)
         {
-            var requestData = new BabysitterRequestData()
-            {
-                FamilyId = familyId,
-                StartTime = startTime,
-                EndTime = endTime
-            };
-
+            
             try
             {
-             
+                var requestData = new BabysitterRequestData()
+                {
+                    FamilyId = familyId,
+                    StartTime = startTime,
+                    EndTime = endTime
+                };
+
+
+
                 var babysitter = _babysitter.GetBabysitterWorkingShift(requestData);
 
                 if (babysitter is null)
                 {
                     return NoContent();
                 }
-
+          
                 var vm = BabysitterViewModel.From(Request, babysitter);
 
                 return Ok(vm);
             }
             catch(Exception ex)
             {
-                
                var vm = new ViewModel<Babysitter>(String.Empty);
                 vm.AddError(ex.Message);
-                return BadRequest(vm);
+                return Ok(vm);
             }
         }
     }

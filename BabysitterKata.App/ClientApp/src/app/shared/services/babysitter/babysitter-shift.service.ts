@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RestService } from '../rest/rest.service';
 import { SharedModule } from '../../shared.module';
+import { BabysitterViewModel } from '../../models/babysitterViewModel';
 
 @Injectable({
   providedIn: SharedModule
@@ -15,15 +16,10 @@ export class BabysitterShiftService {
     private _rest: RestService
   ) { }
 
-  getPayforShift(url: string): Observable<number> {
+  getPayforShift(url: string): Observable<BabysitterViewModel> {
     const shiftPayPath = this._config.currentConfiguration.apiPath + url;
 
     return this._rest.get(shiftPayPath);
   }
 
-  workShift(url: string, formData: Object): Observable<HttpResponse<string>> {
-    const workShiftPath = this._config.currentConfiguration.apiPath + url;
-
-    return this._rest.post(workShiftPath, formData);
-  }
 }

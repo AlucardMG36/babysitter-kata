@@ -1,5 +1,5 @@
 export class Babysitter {
-    familyId: string;
+    currentFamily: string;
     endTime: number;
     payForShift: number;
     startTime: number;

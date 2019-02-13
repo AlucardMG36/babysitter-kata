@@ -1,24 +1,32 @@
-<form class="form-inline">
-  <div class="form-group">
-    <div class="form-row">
-      <div class="col">
-        <div class="input-field col s2">
-          <app-family-selector></app-family-selector>
-        </div>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <app-family-selector id="familySelect" (selectedFamily)="getSelectedFamily($event)"></app-family-selector>
     </div>
-    <div class="form-group">
-      <div class="form-row">
-        <div class="col">
-          <label for="start"> Start Time</label>
-          <app-shift-time-picker id="start"></app-shift-time-picker>
-        </div>
-
-        <div class="col">
-            <label for="end">End Time</label>
-            <app-shift-time-picker id="end"></app-shift-time-picker>
-          </div>
-        </div>
-      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <span style="white-space: nowrap">
+        <p class="text-left font-weight-bold"> Start Time</p>
+        <app-shift-time-picker [time]="startTime" name="start" (selectedTime)="getStartTime($event)"></app-shift-time-picker>
+      </span>
     </div>
-</form>
+    <div class="col-1 col-md-2">
+      <p class="text-center font-weight-bold">to</p>
+    </div>
+    <div class="col-md-3 offset-md-2">
+      <p class="text-left font-weight-bold"> End Time</p>
+      <app-shift-time-picker [time]="endTime" name="end" (selectedTime)="getEndTime($event)"></app-shift-time-picker>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md offset-md-4">
+      <button class="btn btn-dark" (click)="calculatePayForShift()">
+        Work Shift
+      </button>
+      <button class="btn btn-secondary" (click)="clearForm()">
+        Clear
+      </button>
+    </div>
+  </div>
+</div>

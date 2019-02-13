@@ -15,19 +15,29 @@ namespace BabysitterKata.Data.ModelBuilders
             entity.ToTable("Babysitter");
             
             entity.HasKey(e => e.Id);
-           
-            entity.Property(e => e.PayForShift)
-
-                .HasColumnName("Pay")
-
-                .IsRequired();
         
             entity.Property(e => e.CurrentFamily)
 
                 .HasColumnName("CurrentFamily")
 
                 .IsRequired();
-            
+
+            entity.Property(e => e.StartTime)
+                .HasColumnName("StartTime")
+                
+                .IsRequired();
+
+            entity.Property(e => e.EndTime)
+                .HasColumnName("EndTime")
+
+                .IsRequired();
+
+            entity.Property(e => e.PayForShift)
+
+                .HasColumnName("Pay")
+
+                .IsRequired();
+
             entity.HasAlternateKey(e => e.CurrentFamily);
 
         }

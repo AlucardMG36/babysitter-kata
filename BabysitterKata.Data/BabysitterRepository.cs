@@ -19,7 +19,12 @@ namespace BabysitterKata.Data
 
         public Babysitter GetBabysitterWorkingShift(BabysitterRequestData babysitterRequest)
         {
-            var babysitter = new Babysitter(babysitterRequest.FamilyId)
+            if(_dBContext.Babysitters.Count() > 0)
+            {
+                RemoveExistingBabysitter();
+            }
+
+            var babysitter = new Babysitter(babysitterRequest)
             {
                 PayForShift = WorkShift(babysitterRequest.FamilyId, babysitterRequest.StartTime, babysitterRequest.EndTime)
             };
@@ -27,16 +32,23 @@ namespace BabysitterKata.Data
             _dBContext.Babysitters.Add(babysitter);
             _dBContext.SaveChanges();
 
-            return _dBContext.Babysitters.FirstOrDefault();
+            return _dBContext.Babysitters.Where(b => babysitter.Id == b.Id).Single();
         }
-        
+
+        private void RemoveExistingBabysitter()
+        {
+            _dBContext.Babysitters.RemoveRange(_dBContext.Babysitters);
+            _dBContext.SaveChanges();
+        }
+
         private Int32 WorkShift(String familyId, int start, int end)
         {
                 if (start.IsBetween(5, 16) || end.IsBetween(5, 16))
                 {
                     throw new ArgumentException("Start time or End Time outside of valid working hours");
                 }
-                var shiftWorked = Shift.Create(familyId, start, end);
+
+            var shiftWorked = Shift.Create(familyId, start, end);
 
                 return shiftWorked.CalculatePayForNightWorked();
          }

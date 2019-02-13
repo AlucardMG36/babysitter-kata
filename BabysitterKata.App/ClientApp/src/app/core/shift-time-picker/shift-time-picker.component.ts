@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { NgbTime } from '@ng-bootstrap/ng-bootstrap/timepicker/ngb-time';
+import { NgbTimeStruct } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-shift-time-picker',
@@ -7,8 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShiftTimePickerComponent implements OnInit {
 
+  @Input() time: NgbTimeStruct = { hour: 17, minute: 0, second: 0 };
+  meridian: boolean;
+  minuteStep: number;
+
+  @Output() selectedTime: EventEmitter<NgbTimeStruct> = new EventEmitter<NgbTimeStruct>();
+
   constructor() { }
 
   ngOnInit() {
+    this.meridian = true;
+    this.minuteStep = 60;
   }
+
+  timeSelected(event: NgbTimeStruct)  {
+    this.selectedTime.emit(this.time);
+  }
+
 }

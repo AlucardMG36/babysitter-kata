@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BabysitterKata.App.Api.Test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BabysitterKata.Data.EntityFramework.Tests", "BabysitterKata.Data.Tests\BabysitterKata.Data.EntityFramework.Tests.csproj", "{33061561-984C-4EEC-86C4-3C5BD85D7DF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BabysitterKata.App.IntegrationTests", "BabysitterKata.App.IntegrationTests\BabysitterKata.App.IntegrationTests.csproj", "{B807D696-DCF4-42A0-8317-58972F083215}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{33061561-984C-4EEC-86C4-3C5BD85D7DF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33061561-984C-4EEC-86C4-3C5BD85D7DF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33061561-984C-4EEC-86C4-3C5BD85D7DF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B807D696-DCF4-42A0-8317-58972F083215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B807D696-DCF4-42A0-8317-58972F083215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B807D696-DCF4-42A0-8317-58972F083215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B807D696-DCF4-42A0-8317-58972F083215}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 		{D737E6AF-0E37-4F9D-8B55-4E6280C987FB} = {D89C6044-33C7-445B-9410-71DB9157C575}
 		{05FD26E4-EA95-40F9-80F0-FAC13B6BF874} = {0BD95400-FF6A-4B52-8CA8-9812FFABC3F7}
 		{33061561-984C-4EEC-86C4-3C5BD85D7DF7} = {D89C6044-33C7-445B-9410-71DB9157C575}
+		{B807D696-DCF4-42A0-8317-58972F083215} = {0BD95400-FF6A-4B52-8CA8-9812FFABC3F7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {04238D49-21D4-4809-8556-770595B6F553}

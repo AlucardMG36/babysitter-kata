@@ -1,3 +1,4 @@
 export class Family {
-    familyId: string;
+    Id: string;
+    Name: string;
 }

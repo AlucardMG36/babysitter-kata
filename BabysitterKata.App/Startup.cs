@@ -2,6 +2,7 @@ using BabysitterKata.App.Filters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
@@ -17,11 +18,6 @@ namespace BabysitterKata.App
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
-
-            if (env.IsDevelopment())
-            {
-                builder.AddUserSecrets<Startup>();
-            }
 
             builder.AddEnvironmentVariables();
 
@@ -42,7 +38,7 @@ namespace BabysitterKata.App
                  {
                      options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
                  })
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddSwaggerGen(c =>
             {
@@ -53,15 +49,16 @@ namespace BabysitterKata.App
                 });
             });
 
+            //In production, the Angular files will be served from this directory
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "wwwroot";
+            });
 
             services.AddEntityFrameworkInMemoryDatabase()
                     .AddCoreApplicationServices()
                     .AddDataAccessServices();
-            // In production, the Angular files will be served from this directory
-            //services.AddSpaStaticFiles(configuration =>
-            //{
-            //    configuration.RootPath = "ClientApp/dist";
-            //});
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,24 +70,34 @@ namespace BabysitterKata.App
             }
             else
             {
-                //    app.UseExceptionHandler("/Error");
+                app.UseExceptionHandler("/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
-            //app.UseStaticFiles();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+            app.UseHttpsRedirection();
             //app.UseSpaStaticFiles();
 
+
+
             app.UseSwagger(c => c.RouteTemplate = "docs/{documentName}/swagger.json");
+
             app.UseSwaggerUI(c =>
-          {
-              c.SwaggerEndpoint("/docs/v1/swagger.json", "BabysitterKata API V1");
-              c.RoutePrefix = "swagger";
-          });
 
-            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+            {
 
-            app.UseHttpsRedirection();
+                c.SwaggerEndpoint("/docs/v1/swagger.json", "Forge API V1");
+
+                c.RoutePrefix = "swagger";
+
+            });
+
+            app.UseCors(cors => cors.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+
             app.UseMvc();
+
             //app.UseSpa(spa =>
             //{
             //    // To learn more about options for serving an Angular SPA from ASP.NET Core,
